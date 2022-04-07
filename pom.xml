@@ -7,16 +7,28 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.1.RELEASE</version>
+        <version>2.5.12</version>
     </parent>
 
     <groupId>org.example</groupId>
     <artifactId>springboot-shiro-jwt</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>ssj</name>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+        <spring-framework>5.3.18</spring-framework>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -41,23 +53,17 @@
             <artifactId>java-jwt</artifactId>
             <version>3.2.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>2.2.1.RELEASE</version>
-        </dependency>
 
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>5.3.7</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>5.2.1.RELEASE</version>
-        </dependency>
 
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+        </dependency>
 
     </dependencies>
 

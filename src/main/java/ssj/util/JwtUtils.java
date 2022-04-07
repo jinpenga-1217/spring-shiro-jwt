@@ -3,6 +3,7 @@ package ssj.util;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
@@ -60,5 +61,14 @@ public class JwtUtils {
             return "getClaimFalse";
         }
         return claim;
+    }
+
+    public static String getUserName(String token) {
+        try {
+            DecodedJWT jwt = JWT.decode(token);
+            return jwt.getClaim("username").asString();
+        } catch (Exception exception) {
+            return null;
+        }
     }
 }

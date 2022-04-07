@@ -1,4 +1,4 @@
-package ssj;
+package ssj.component;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -8,9 +8,11 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.stereotype.Component;
 import ssj.domain.JwtToken;
 import ssj.util.JwtUtils;
 
+@Component
 public class SsjRealm extends AuthorizingRealm {
 
     @Override
@@ -57,7 +59,7 @@ public class SsjRealm extends AuthorizingRealm {
         System.out.println("2.getCredentials ------>>> " + authenticationToken.getCredentials().toString());
         System.out.println("3. -------------》》 " +authenticationToken.getPrincipal().toString());
         String jwt = (String) authenticationToken.getCredentials();
-
+        String userName = JwtUtils.getUserName(jwt);
 
         return new SimpleAuthenticationInfo(jwt, jwt, "SsjRealm");
     }
